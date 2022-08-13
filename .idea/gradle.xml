@@ -10,7 +10,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/customer" />
+            <option value="$PROJECT_DIR$/driver" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/auth" />
+            <option value="$PROJECT_DIR$/features/transaction" />
+            <option value="$PROJECT_DIR$/shared" />
+            <option value="$PROJECT_DIR$/shared/network" />
+            <option value="$PROJECT_DIR$/shared/utils" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

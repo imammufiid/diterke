@@ -13,4 +13,9 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Diterke"
-include ':app'
+include ':customer'
+include ':driver'
+include ':features:auth'
+include ':features:transaction'
+include ':shared:network'
+include ':shared:utils'
