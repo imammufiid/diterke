@@ -11,13 +11,13 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/component_transport_card_image"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
         android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/component_transport_card_title"
-        app:srcCompat="@drawable/ic_transport_bike"/>
+        app:srcCompat="@drawable/ic_transport_taxi"/>
 
     <TextView
         android:id="@+id/component_transport_card_title"

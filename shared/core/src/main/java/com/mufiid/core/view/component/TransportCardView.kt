@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.core.content.ContextCompat
 import com.mufiid.core.R
 import com.mufiid.core.extensions.findIdByLazy
 
@@ -29,6 +30,13 @@ class TransportCardView(context: Context, attributeSet: AttributeSet) :
         get() = _isTransportSelected
         set(value) {
             setTransportSelected(value)
+        }
+
+    private var _isTransportEnabled: Boolean = false
+    var isTransportEnabled: Boolean
+        get() = _isTransportEnabled
+        set(value) {
+            setTransportEnabled(value)
         }
 
     private var _title: String = ""
@@ -55,11 +63,13 @@ class TransportCardView(context: Context, attributeSet: AttributeSet) :
                 getBoolean(R.styleable.TransportCardView_isTransportSelected, false)
             val transportTypeIndex = getInt(R.styleable.TransportCardView_transportType, _transportType.ordinal)
             val transportType = TransportType.values()[transportTypeIndex]
+            val isTransportEnabled = getBoolean(R.styleable.TransportCardView_setEnabled, false)
 
             setTitle(title)
             setImageView(image)
             setTransportType(transportType)
             setTransportSelected(isTransportSelected)
+            setTransportEnabled(isTransportEnabled)
         }.recycle()
 
     }
@@ -70,6 +80,7 @@ class TransportCardView(context: Context, attributeSet: AttributeSet) :
 
     @JvmName("setTransportType1")
     private fun setTransportType(transportType: TransportType) {
+        _transportType = transportType
         val (imageRes, title) = when (transportType) {
             TransportType.BIKE -> {
                 Pair(R.drawable.ic_transport_bike, "TransBike")
@@ -108,6 +119,37 @@ class TransportCardView(context: Context, attributeSet: AttributeSet) :
             R.drawable.bg_component_transport_card_unselected
         }
         componentRootView.setBackgroundResource(backgroundRootView)
+    }
+
+    @JvmName("setTransportEnabled1")
+    private fun setTransportEnabled(enabled: Boolean) {
+        if (enabled) {
+            componentTitleView.setTextColor(ContextCompat.getColor(context, R.color.grey))
+            when (_transportType) {
+                TransportType.BIKE -> {
+                    setImageView(R.drawable.ic_transport_bike_disable)
+                }
+                TransportType.CAR -> {
+                    setImageView(R.drawable.ic_transport_car_disable)
+                }
+                TransportType.TAXI -> {
+                    setImageView(R.drawable.ic_transport_taxi_disable)
+                }
+            }
+        } else {
+            componentTitleView.setTextColor(ContextCompat.getColor(context, R.color.black))
+            when (_transportType) {
+                TransportType.BIKE -> {
+                    setImageView(R.drawable.ic_transport_bike)
+                }
+                TransportType.CAR -> {
+                    setImageView(R.drawable.ic_transport_car)
+                }
+                TransportType.TAXI -> {
+                    setImageView(R.drawable.ic_transport_taxi)
+                }
+            }
+        }
     }
 
 }

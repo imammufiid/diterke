@@ -4,6 +4,7 @@
         <attr name="image" format="reference"/>
         <attr name="title" format="string"/>
         <attr name="isTransportSelected" format="boolean"/>
+        <attr name="setEnabled" format="boolean"/>
         <attr name="transportType" format="enum">
             <enum name="bike" value="0"/>
             <enum name="car" value="1"/>

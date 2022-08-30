@@ -31,7 +31,8 @@
                 android:id="@+id/transport_taxi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:transportType="taxi"/>
+                app:transportType="taxi"
+                app:setEnabled="true"/>
         </LinearLayout>
 
 
