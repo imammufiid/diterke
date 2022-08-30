@@ -10,4 +10,13 @@
             <enum name="taxi" value="2"/>
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="ButtonView">
+        <attr name="buttonTitle" format="string"/>
+        <attr name="buttonType" format="enum">
+            <enum name="base" value="0"/>
+            <enum name="facebook" value="1"/>
+            <enum name="google" value="2"/>
+        </attr>
+    </declare-styleable>
 </resources>

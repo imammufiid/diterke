@@ -18,8 +18,6 @@ class ComponentPlaygroundActivity : AppCompatActivity() {
         }
     }
 
-    private val transportCardView : TransportCardView by findIdByLazy(R.id.transport_card)
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_component_playground)

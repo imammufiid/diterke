@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="white">#FFFFFF</color>
-    <color name="green">#31A53D</color>
+    <color name="white_selected">#E4E4E4</color>
+    <color name="green">#16C79A</color>
+    <color name="green_selected">#24DFAE</color>
     <color name="black">#000000</color>
+    <color name="bg_white">#E5E5E5</color>
+    <color name="blue_fb">#3B5998</color>
+    <color name="blue_fb_selected">#4665A8</color>
+    <color name="grey">#D8D8D8</color>
 </resources>
