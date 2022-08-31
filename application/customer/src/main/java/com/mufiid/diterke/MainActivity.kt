@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import com.mufiid.core.view.ComponentPlaygroundActivity
+import com.mufiid.diterke.auth.AuthActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -11,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<TextView>(R.id.tv_hello).setOnClickListener {
-            ComponentPlaygroundActivity.launch(this)
+            AuthActivity.launch(this)
         }
     }
 }

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".auth.AuthActivity">
+
+    <View
+        android:id="@+id/rectangle"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="@id/rectangle"
+        app:layout_constraintEnd_toEndOf="@id/rectangle"
+        app:layout_constraintStart_toStartOf="@id/rectangle"
+        app:srcCompat="@drawable/ic_city" />
+
+    <View
+        android:id="@+id/container_form"
+        android:layout_width="match_parent"
+        android:layout_height="340dp"
+        android:layout_marginHorizontal="16dp"
+        android:background="@color/grey_container"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/container_form"
+        app:layout_constraintStart_toStartOf="@id/container_form"
+        app:layout_constraintEnd_toStartOf="@id/tv_sign_in"
+        android:textSize="26sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="18dp"
+        android:text="Sign Up"/>
+
+    <View
+        android:layout_width="90dp"
+        android:layout_height="4dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_sign_up"
+        app:layout_constraintStart_toStartOf="@id/tv_sign_up"
+        app:layout_constraintEnd_toEndOf="@id/tv_sign_up"
+        android:background="@color/green" />
+
+    <TextView
+        android:id="@+id/tv_sign_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/tv_sign_up"
+        app:layout_constraintEnd_toEndOf="@id/container_form"
+        app:layout_constraintStart_toEndOf="@id/tv_sign_up"
+        android:textSize="26sp"
+        android:textColor="@color/grey"
+        android:textStyle="bold"
+        android:text="Sign In"/>
+
+    <View
+        android:layout_width="90dp"
+        android:layout_height="4dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_sign_in"
+        app:layout_constraintStart_toStartOf="@id/tv_sign_in"
+        app:layout_constraintEnd_toEndOf="@id/tv_sign_in"
+        android:background="@color/green"
+        android:visibility="gone"/>
+
+    <com.mufiid.core.view.component.ButtonView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginBottom="10dp"
+        app:buttonTitle="Sign Up"
+        app:layout_constraintBottom_toBottomOf="@id/container_form"
+        app:layout_constraintStart_toStartOf="@id/container_form"
+        app:layout_constraintEnd_toEndOf="@id/container_form"/>
+
+    <com.mufiid.core.view.component.ButtonView
+        android:id="@+id/btn_facebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="20dp"
+        app:buttonTitle="Sign up with Facebook"
+        app:buttonType="facebook"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container_form" />
+
+    <com.mufiid.core.view.component.ButtonView
+        android:id="@+id/btn_google"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        app:buttonTitle="Sign up with Google"
+        app:buttonType="google"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_facebook" />
+
+    <TextView
+        android:id="@+id/tv_term_des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="by Signing up with this, you agree to our"
+        app:layout_constraintTop_toBottomOf="@id/btn_google"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@id/tv_term_click"/>
+
+    <TextView
+        android:id="@+id/tv_term_click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" terms and condition"
+        app:layout_constraintTop_toTopOf="@id/tv_term_des"
+        app:layout_constraintBottom_toBottomOf="@id/tv_term_des"
+        app:layout_constraintStart_toEndOf="@id/tv_term_des"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:textSize="12sp"
+        android:textColor="@color/black"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
