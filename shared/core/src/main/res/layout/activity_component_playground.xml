@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grey"
+    android:padding="4dp"
     tools:context=".view.ComponentPlaygroundActivity">
 
     <LinearLayout
@@ -12,22 +13,29 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Transport Card"
+            android:textSize="20sp"
+            style="@style/TextAppearance.MaterialComponents.Headline6"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <com.mufiid.core.view.component.TransportCardView
+            <com.mufiid.core.view.component.WidgetTransportCardView
                 android:id="@+id/transport_bike"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:transportType="bike"/>
-            <com.mufiid.core.view.component.TransportCardView
+            <com.mufiid.core.view.component.WidgetTransportCardView
                 android:id="@+id/transport_car"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:isTransportSelected="true"
                 app:transportType="car"/>
-            <com.mufiid.core.view.component.TransportCardView
+            <com.mufiid.core.view.component.WidgetTransportCardView
                 android:id="@+id/transport_taxi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -35,23 +43,29 @@
                 app:setEnabled="true"/>
         </LinearLayout>
 
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            android:layout_marginTop="8dp"
+            android:textSize="20sp"
+            style="@style/TextAppearance.MaterialComponents.Headline6"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <com.mufiid.core.view.component.ButtonView
+            <com.mufiid.core.view.component.WidgetButtonView
                 android:id="@+id/button_view"
                 android:layout_width="match_parent"
                 app:buttonTitle="Sign up with facebook"
                 app:buttonType="base"
                 android:layout_height="wrap_content"/>
-            <com.mufiid.core.view.component.ButtonView
+            <com.mufiid.core.view.component.WidgetButtonView
                 android:layout_width="match_parent"
                 app:buttonTitle="Sign up with facebook"
                 app:buttonType="facebook"
                 android:layout_height="wrap_content"/>
-            <com.mufiid.core.view.component.ButtonView
+            <com.mufiid.core.view.component.WidgetButtonView
                 android:layout_width="match_parent"
                 app:buttonTitle="Sign up with facebook"
                 app:buttonType="google"

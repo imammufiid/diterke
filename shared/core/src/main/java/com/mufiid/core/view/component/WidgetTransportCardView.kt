@@ -10,7 +10,7 @@ import androidx.core.content.ContextCompat
 import com.mufiid.core.R
 import com.mufiid.core.extensions.findIdByLazy
 
-class TransportCardView(context: Context, attributeSet: AttributeSet) :
+class WidgetTransportCardView(context: Context, attributeSet: AttributeSet) :
 
     FrameLayout(context, attributeSet) {
 
@@ -55,15 +55,15 @@ class TransportCardView(context: Context, attributeSet: AttributeSet) :
 
 
     init {
-        inflate(context, R.layout.component_transport_card, this)
-        context.obtainStyledAttributes(attributeSet, R.styleable.TransportCardView, 0, 0).apply {
-            val image = getResourceId(R.styleable.TransportCardView_image, -1)
-            val title = getString(R.styleable.TransportCardView_title).orEmpty()
+        inflate(context, R.layout.component_widget_transport_card, this)
+        context.obtainStyledAttributes(attributeSet, R.styleable.WidgetTransportCardView, 0, 0).apply {
+            val image = getResourceId(R.styleable.WidgetTransportCardView_image, -1)
+            val title = getString(R.styleable.WidgetTransportCardView_title).orEmpty()
             val isTransportSelected =
-                getBoolean(R.styleable.TransportCardView_isTransportSelected, false)
-            val transportTypeIndex = getInt(R.styleable.TransportCardView_transportType, _transportType.ordinal)
+                getBoolean(R.styleable.WidgetTransportCardView_isTransportSelected, false)
+            val transportTypeIndex = getInt(R.styleable.WidgetTransportCardView_transportType, _transportType.ordinal)
             val transportType = TransportType.values()[transportTypeIndex]
-            val isTransportEnabled = getBoolean(R.styleable.TransportCardView_setEnabled, false)
+            val isTransportEnabled = getBoolean(R.styleable.WidgetTransportCardView_setEnabled, false)
 
             setTitle(title)
             setImageView(image)

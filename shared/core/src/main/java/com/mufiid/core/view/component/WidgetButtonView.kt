@@ -11,7 +11,7 @@ import androidx.core.content.ContextCompat
 import com.mufiid.core.R
 import com.mufiid.core.extensions.findIdByLazy
 
-class ButtonView(context: Context, attributeSet: AttributeSet): FrameLayout(context, attributeSet) {
+class WidgetButtonView(context: Context, attributeSet: AttributeSet): FrameLayout(context, attributeSet) {
     private val componentRootView: ConstraintLayout by findIdByLazy(R.id.component_button_root_view)
     private val componentTitleView: TextView by findIdByLazy(R.id.component_button_title)
     private val componentImageView: AppCompatImageView by findIdByLazy(R.id.component_button_icon)
@@ -35,10 +35,10 @@ class ButtonView(context: Context, attributeSet: AttributeSet): FrameLayout(cont
         }
 
     init {
-        inflate(context, R.layout.component_button, this)
-        context.obtainStyledAttributes(attributeSet, R.styleable.ButtonView, 0, 0).apply {
-            val title = getString(R.styleable.ButtonView_buttonTitle).orEmpty()
-            val transportTypeIndex = getInt(R.styleable.ButtonView_buttonType, _buttonType.ordinal)
+        inflate(context, R.layout.component_widget_button, this)
+        context.obtainStyledAttributes(attributeSet, R.styleable.WidgetButtonView, 0, 0).apply {
+            val title = getString(R.styleable.WidgetButtonView_buttonTitle).orEmpty()
+            val transportTypeIndex = getInt(R.styleable.WidgetButtonView_buttonType, _buttonType.ordinal)
             val transportType = ButtonType.values()[transportTypeIndex]
 
             setTitle(title)

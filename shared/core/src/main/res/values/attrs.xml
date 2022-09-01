@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="TransportCardView">
+    <declare-styleable name="WidgetTransportCardView">
         <attr name="image" format="reference"/>
         <attr name="title" format="string"/>
         <attr name="isTransportSelected" format="boolean"/>
@@ -12,12 +12,21 @@
         </attr>
     </declare-styleable>
 
-    <declare-styleable name="ButtonView">
+    <declare-styleable name="WidgetButtonView">
         <attr name="buttonTitle" format="string"/>
         <attr name="buttonType" format="enum">
             <enum name="base" value="0"/>
             <enum name="facebook" value="1"/>
             <enum name="google" value="2"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="WidgetTitleAuthView">
+        <attr name="authTitle" format="string"/>
+        <attr name="isSelected" format="boolean"/>
+        <attr name="authType" format="enum">
+            <enum name="sign_in" value="0"/>
+            <enum name="sign_up" value="1"/>
         </attr>
     </declare-styleable>
 </resources>

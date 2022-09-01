@@ -5,8 +5,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.mufiid.core.R
-import com.mufiid.core.extensions.findIdByLazy
-import com.mufiid.core.view.component.TransportCardView
 
 class ComponentPlaygroundActivity : AppCompatActivity() {
 
