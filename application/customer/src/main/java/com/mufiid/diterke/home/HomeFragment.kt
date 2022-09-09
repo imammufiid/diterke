@@ -13,7 +13,7 @@ import com.mufiid.core.state.StateEventSubscriber
 import com.mufiid.diterke.R
 import com.mufiid.diterke.databinding.FragmentHomeBinding
 import com.mufiid.utils.BindingFragment
-import com.mufiid.utils.findActivityListener
+import com.mufiid.utils.listener.findActivityListener
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pub.devrel.easypermissions.AfterPermissionGranted
 import pub.devrel.easypermissions.EasyPermissions
