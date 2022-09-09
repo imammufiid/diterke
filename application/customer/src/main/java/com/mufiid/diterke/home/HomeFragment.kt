@@ -3,6 +3,7 @@ package com.mufiid.diterke.home
 import android.Manifest
 import android.location.Location
 import android.os.Bundle
+import android.widget.Toast
 import androidx.core.view.isVisible
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -12,12 +13,13 @@ import com.mufiid.core.state.StateEventSubscriber
 import com.mufiid.diterke.R
 import com.mufiid.diterke.databinding.FragmentHomeBinding
 import com.mufiid.utils.BindingFragment
+import com.mufiid.utils.findActivityListener
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pub.devrel.easypermissions.AfterPermissionGranted
 import pub.devrel.easypermissions.EasyPermissions
 
 
-class HomeFragment : BindingFragment<FragmentHomeBinding>() {
+class HomeFragment : BindingFragment<FragmentHomeBinding>(), HomeFragmentListener {
 
     companion object {
         private const val RC_LOCATION = 16
@@ -60,6 +62,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>() {
             binding.progressBar.isVisible = false
             val cameraUpdate = CameraUpdateFactory.newLatLngZoom(data.toLatLng(), 14f)
             map.animateCamera(cameraUpdate)
+            findActivityListener<MainActivityListener>()?.onLocationResult(data)
         }
 
     }
@@ -81,7 +84,9 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>() {
                 )
             }
         }
-
     }
 
+    override fun onMessageFromActivity(message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+    }
 }
