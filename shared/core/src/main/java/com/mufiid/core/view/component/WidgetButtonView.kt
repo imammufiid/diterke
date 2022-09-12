@@ -15,6 +15,7 @@ class WidgetButtonView(context: Context, attributeSet: AttributeSet): FrameLayou
     private val componentRootView: ConstraintLayout by findIdByLazy(R.id.component_button_root_view)
     private val componentTitleView: TextView by findIdByLazy(R.id.component_button_title)
     private val componentImageView: AppCompatImageView by findIdByLazy(R.id.component_button_icon)
+    private var listener : OnClickListener? = null
 
     enum class ButtonType {
         DEFAULT, FACEBOOK, GOOGLE
@@ -43,6 +44,10 @@ class WidgetButtonView(context: Context, attributeSet: AttributeSet): FrameLayou
 
             setTitle(title)
             setButtonType(transportType)
+
+            componentRootView.setOnClickListener {
+                listener?.onClickListener(it)
+            }
         }.recycle()
     }
 
@@ -57,6 +62,10 @@ class WidgetButtonView(context: Context, attributeSet: AttributeSet): FrameLayou
         if (imageRes != -1) {
             componentImageView.setImageResource(imageRes)
         }
+    }
+
+    fun setOnClickListener(onClickListener: OnClickListener) {
+        this.listener = onClickListener
     }
 
     @JvmName("setTransportType1")
@@ -80,5 +89,9 @@ class WidgetButtonView(context: Context, attributeSet: AttributeSet): FrameLayou
                 componentTitleView.setTextColor(ContextCompat.getColor(context, R.color.black))
             }
         }
+    }
+
+    fun interface OnClickListener {
+        fun onClickListener(view: View)
     }
 }
