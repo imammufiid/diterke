@@ -29,4 +29,8 @@
             <enum name="sign_up" value="1"/>
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="WidgetFormAuthView">
+        <attr name="isSignIn" format="boolean"/>
+    </declare-styleable>
 </resources>
