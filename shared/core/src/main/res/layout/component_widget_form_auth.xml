@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/component_widget_form_auth_container_view"
+    android:paddingVertical="12dp"
+    android:animateLayoutChanges="true"
+    android:background="@color/grey_container">
+
+    <com.mufiid.core.view.component.WidgetTitleAuthView
+        android:id="@+id/component_widget_form_auth_tv_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/component_widget_form_auth_container_view"
+        app:layout_constraintStart_toStartOf="@id/component_widget_form_auth_container_view"
+        app:layout_constraintEnd_toStartOf="@id/component_widget_form_auth_tv_signin"
+        android:textSize="26sp"
+        android:textColor="@color/grey"
+        android:textStyle="bold"
+        app:authType="sign_up"/>
+
+    <com.mufiid.core.view.component.WidgetTitleAuthView
+        android:id="@+id/component_widget_form_auth_tv_signin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/component_widget_form_auth_tv_signup"
+        app:layout_constraintEnd_toEndOf="@id/component_widget_form_auth_container_view"
+        app:layout_constraintStart_toEndOf="@id/component_widget_form_auth_tv_signup"
+        app:authType="sign_in"
+        app:isSelected="true"/>
+
+    <EditText
+        android:id="@+id/component_widget_form_auth_et_username"
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        android:hint="Username"
+        android:paddingHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@id/component_widget_form_auth_container_view"
+        app:layout_constraintEnd_toEndOf="@id/component_widget_form_auth_container_view"
+        app:layout_constraintTop_toBottomOf="@id/component_widget_form_auth_tv_signin"
+        android:layout_marginHorizontal="16dp"
+        android:background="@drawable/bg_component_edit_text_white"/>
+
+    <EditText
+        android:id="@+id/component_widget_form_auth_et_secondary"
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        android:hint="Password"
+        android:paddingHorizontal="10dp"
+        android:layout_marginTop="14dp"
+        app:layout_constraintStart_toStartOf="@id/component_widget_form_auth_container_view"
+        app:layout_constraintEnd_toEndOf="@id/component_widget_form_auth_container_view"
+        app:layout_constraintTop_toBottomOf="@id/component_widget_form_auth_et_username"
+        android:layout_marginHorizontal="16dp"
+        android:background="@drawable/bg_component_edit_text_white"/>
+
+    <com.mufiid.core.view.component.WidgetButtonView
+        android:id="@+id/component_widget_form_auth_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="20dp"
+        app:buttonTitle="Sign Up"
+        app:layout_constraintEnd_toEndOf="@id/component_widget_form_auth_container_view"
+        app:layout_constraintTop_toBottomOf="@id/component_widget_form_auth_et_secondary"
+        app:layout_constraintStart_toStartOf="@id/component_widget_form_auth_container_view" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
