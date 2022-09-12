@@ -1,7 +1,8 @@
-package com.mufiid.core
+package com.mufiid.koin
 
 import android.content.Context
-//import com.mufiid.auth.AuthModule
+import com.mufiid.core.CoreModules
+import com.mufiid.locationapi.LocationApiModule
 import com.mufiid.network.NetworkModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -11,7 +12,8 @@ object KoinStarter {
     fun onCreate(context: Context, featuresModules: List<Module> = emptyList()) {
         val modules = listOf(
             CoreModules.modules(),
-            NetworkModule.modules()
+            NetworkModule.modules(),
+            LocationApiModule.modules()
         ) + featuresModules
 
         startKoin {

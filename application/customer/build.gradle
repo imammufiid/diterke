@@ -22,5 +22,6 @@ android {
 
 dependencies {
     implementation project(":shared:core")
+    implementation project(":shared:koin")
     implementation project(":features:auth")
 }

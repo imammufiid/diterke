@@ -19,7 +19,7 @@ import pub.devrel.easypermissions.AfterPermissionGranted
 import pub.devrel.easypermissions.EasyPermissions
 
 
-class HomeFragment : BindingFragment<FragmentHomeBinding>(), HomeFragmentListener {
+class HomeFragment : BindingFragment<FragmentHomeBinding>() {
 
     companion object {
         private const val RC_LOCATION = 16
@@ -84,9 +84,5 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(), HomeFragmentListene
                 )
             }
         }
-    }
-
-    override fun onMessageFromActivity(message: String) {
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 }

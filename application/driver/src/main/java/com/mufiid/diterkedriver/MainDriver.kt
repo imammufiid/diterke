@@ -1,7 +1,7 @@
 package com.mufiid.diterkedriver
 
 import android.app.Application
-import com.mufiid.core.KoinStarter
+import com.mufiid.koin.KoinStarter
 
 class MainDriver: Application() {
     override fun onCreate() {

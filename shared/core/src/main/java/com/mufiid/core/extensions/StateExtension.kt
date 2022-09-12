@@ -2,12 +2,13 @@ package com.mufiid.core.extensions
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mufiid.core.state.StateEvent
-import com.mufiid.core.state.StateEventManager
-import com.mufiid.core.state.StateEventSubscriber
+import com.mufiid.core.state.*
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
+import retrofit2.Response
 
 val <T>StateEvent<T>.value: T?
     get() {
@@ -31,10 +32,30 @@ fun <T> ViewModel.convertEventToSubscriber(
     )
 }
 
-fun <T> Flow<T>.mapStateEvent(): Flow<StateEvent<T>> {
+fun <T> Flow<T>.mapStateEvent(): FlowState<T> {
     return this.catch {
         StateEvent.Failure<T>(it)
     }.map {
         StateEvent.Success(it)
+    }
+}
+
+fun <T, U> Response<T>.asFlowStateEvent(mapper: (T) -> U): FlowState<U> {
+    return flow {
+        emit(StateEvent.Loading())
+        delay(2000)
+        val emitData = try {
+            val body = body()
+            if (isSuccessful && body != null) {
+                val data = mapper.invoke(body)
+                StateEvent.Success(data)
+            } else {
+                val throwable = StateApiException(message(), code())
+                StateEvent.Failure(throwable)
+            }
+        } catch (e: Throwable) {
+            StateEvent.Failure(e)
+        }
+        emit(emitData)
     }
 }

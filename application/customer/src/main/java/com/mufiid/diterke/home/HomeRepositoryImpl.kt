@@ -18,8 +18,6 @@ class HomeRepositoryImpl(
         _locationResult.emit(StateEvent.Loading())
         locationManager.getLocationFlow()
             .mapStateEvent()
-            .collect {
-                _locationResult.emit(it)
-            }
+            .collect(_locationResult)
     }
 }

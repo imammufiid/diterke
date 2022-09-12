@@ -6,6 +6,7 @@ plugins {
 apply from: "$rootDir/gradle/script/main.gradle"
 apply from: "$rootDir/gradle/script/main.dependencies.gradle"
 apply from: "$rootDir/gradle/script/features.dependencies.gradle"
+apply from: "$rootDir/gradle/script/main.localmodule.gradle"
 
 android {
     defaultConfig {
@@ -18,7 +19,5 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.5.0'
-    implementation 'com.google.android.material:material:1.6.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation project(":shared:core")
 }
