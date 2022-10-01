@@ -21,4 +21,5 @@ dependencies {
     implementation project(":shared:utils")
     implementation project(":shared:core")
     implementation project(":shared:navigation")
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }

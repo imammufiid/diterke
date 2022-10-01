@@ -6,7 +6,7 @@ import com.mufiid.auth.ui.AuthViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
-object AuthModule {
+object FeatureAuthModule {
     fun modules() = module {
         single { AuthServiceProvider.provideAuthService() }
         single<AuthRepository> { AuthRepositoryImpl(get()) }
