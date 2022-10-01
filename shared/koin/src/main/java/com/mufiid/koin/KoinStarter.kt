@@ -3,7 +3,7 @@ package com.mufiid.koin
 import android.content.Context
 import com.mufiid.auth.di.AuthModule
 import com.mufiid.core.CoreModules
-import com.mufiid.locationapi.LocationApiModule
+import com.mufiid.searchlocation.LocationApiModule
 import com.mufiid.network.NetworkModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin

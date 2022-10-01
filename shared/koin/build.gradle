@@ -19,7 +19,7 @@ android {
 
 dependencies {
     implementation project(":features:transaction")
-    implementation project(":features:location-api")
+    implementation project(':features:customer:searchlocation')
     implementation project(":features:auth")
     implementation project(":shared:network")
     implementation project(":shared:utils")

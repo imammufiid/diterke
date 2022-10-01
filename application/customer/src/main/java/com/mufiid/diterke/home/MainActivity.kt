@@ -1,12 +1,14 @@
 package com.mufiid.diterke.home
 
+import android.content.Context
+import android.content.Intent
 import android.location.Location
 import android.os.Bundle
 import android.widget.Toast
 import com.mufiid.core.extensions.attachFragment
 import com.mufiid.core.extensions.toLatLng
 import com.mufiid.diterke.databinding.ActivityMainBinding
-import com.mufiid.locationapi.ui.SearchLocationActivity
+import com.mufiid.searchlocation.ui.SearchLocationActivity
 import com.mufiid.core.view.base.BindingActivity
 
 class MainActivity : BindingActivity<ActivityMainBinding>(), MainActivityListener {
@@ -29,5 +31,11 @@ class MainActivity : BindingActivity<ActivityMainBinding>(), MainActivityListene
      */
     override fun onLocationResult(data: Location) {
         Toast.makeText(this, data.toLatLng().toString(), Toast.LENGTH_SHORT).show()
+    }
+
+    companion object {
+        fun launch(context: Context) {
+            context.startActivity(Intent(context, MainActivity::class.java))
+        }
     }
 }

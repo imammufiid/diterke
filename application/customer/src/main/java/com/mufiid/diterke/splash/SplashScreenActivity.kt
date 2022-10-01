@@ -3,8 +3,8 @@ package com.mufiid.diterke.splash
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.mufiid.auth.ui.AuthActivity
 import com.mufiid.diterke.R
+import com.mufiid.diterke.home.MainActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -18,7 +18,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.Main).launch {
             delay(2000)
-            AuthActivity.launch(this@SplashScreenActivity)
+            MainActivity.launch(this@SplashScreenActivity)
         }
     }
 }

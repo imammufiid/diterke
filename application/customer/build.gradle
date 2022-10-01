@@ -22,7 +22,7 @@ android {
 
 dependencies {
     implementation project(":features:transaction")
-    implementation project(":features:location-api")
+    implementation project(':features:customer:searchlocation')
     implementation project(":features:auth")
     implementation project(":features:auth")
 
@@ -30,4 +30,5 @@ dependencies {
     implementation project(":shared:utils")
     implementation project(":shared:core")
     implementation project(":shared:koin")
+    implementation project(":shared:navigation")
 }
