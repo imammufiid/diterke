@@ -1,6 +1,3 @@
 package com.mufiid.core.extensions
 
-//import com.mufiid.auth.event.StateEvent
-//import kotlinx.coroutines.flow.Flow
-//
-//typealias FlowState<T> = Flow<StateEvent<T>>
+fun Double?.orNol(): Double = this ?: 0.0

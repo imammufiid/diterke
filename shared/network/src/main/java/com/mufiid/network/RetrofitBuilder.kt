@@ -8,12 +8,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 class RetrofitBuilder {
 
     companion object {
-        const val BASE_URL = "https://b202-175-158-53-165.ap.ngrok.io"
+        const val BASE_URL = "https://a9e3-175-158-53-165.ap.ngrok.io"
     }
 
     fun okHttp(): OkHttpClient {
         val httpLoggingInterceptor = HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BASIC
+            level = HttpLoggingInterceptor.Level.BODY
         }
         return OkHttpClient()
             .newBuilder()

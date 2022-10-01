@@ -1,9 +1,9 @@
 package com.mufiid.locationapi
 
 import com.google.android.gms.maps.model.LatLng
+import com.mufiid.core.extensions.orNol
 import com.mufiid.locationapi.entity.LocationData
 import com.mufiid.locationapi.response.LocationResponse
-import com.mufiid.utils.extension.orNol
 
 object Mapper {
     fun mapLocationResponseToData(locationResponse: LocationResponse?): List<LocationData> {

@@ -19,8 +19,14 @@ class WidgetFormAuthView(context: Context, attributeSet: AttributeSet) :
     private val componentButtonView: WidgetButtonView by findIdByLazy(R.id.component_widget_form_auth_button)
     private val componentEtUsernameView: EditText by findIdByLazy(R.id.component_widget_form_auth_et_username)
     private val componentEtSecondaryView: EditText by findIdByLazy(R.id.component_widget_form_auth_et_secondary)
-    private var listener : OnClickListener? = null
-    private var textChangeListener : AddTextChangedListener? = null
+    private var listener: OnClickListener? = null
+    private var textChangeListener: AddTextChangedListener? = null
+
+    val userNameEditText: String
+        get() = componentEtUsernameView.text.toString()
+
+    val secondaryEditText: String
+        get() = componentEtSecondaryView.text.toString()
 
     private var _isSignIn: Boolean = false
     var isSignIn: Boolean
@@ -29,34 +35,34 @@ class WidgetFormAuthView(context: Context, attributeSet: AttributeSet) :
             setIsSignIn(value)
         }
 
-        init {
-            inflate(context, R.layout.component_widget_form_auth, this)
-            context.obtainStyledAttributes(attributeSet, R.styleable.WidgetFormAuthView, 0, 0).apply {
-                val isSignIn = getBoolean(R.styleable.WidgetFormAuthView_isSignIn, true)
+    init {
+        inflate(context, R.layout.component_widget_form_auth, this)
+        context.obtainStyledAttributes(attributeSet, R.styleable.WidgetFormAuthView, 0, 0).apply {
+            val isSignIn = getBoolean(R.styleable.WidgetFormAuthView_isSignIn, true)
 
-                setIsSignIn(isSignIn)
+            setIsSignIn(isSignIn)
 
-                componentButtonView.setOnClickListener {
-                    listener?.onClickListener(it)
-                }
+            componentButtonView.setOnClickListener {
+                listener?.onClickListener(it)
+            }
 
-                componentTitleSignInView.setOnClickListener {
-                    setIsSignIn(true)
-                }
+            componentTitleSignInView.setOnClickListener {
+                setIsSignIn(true)
+            }
 
-                componentTitleSignUpView.setOnClickListener {
-                    setIsSignIn(false)
-                }
+            componentTitleSignUpView.setOnClickListener {
+                setIsSignIn(false)
+            }
 
-                componentEtUsernameView.addTextChangedListener {
-                    textChangeListener?.addTextChangedListener(it, EDIT_TEXT_USERNAME)
-                }
+            componentEtUsernameView.addTextChangedListener {
+                textChangeListener?.addTextChangedListener(it, EDIT_TEXT_USERNAME)
+            }
 
-                componentEtSecondaryView.addTextChangedListener {
-                    textChangeListener?.addTextChangedListener(it, EDIT_TEXT_SECONDARY)
-                }
-            }.recycle()
-        }
+            componentEtSecondaryView.addTextChangedListener {
+                textChangeListener?.addTextChangedListener(it, EDIT_TEXT_SECONDARY)
+            }
+        }.recycle()
+    }
 
     fun setOnButtonClickListener(onClickListener: OnClickListener) {
         this.listener = onClickListener

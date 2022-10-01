@@ -1,4 +1,4 @@
-package com.mufiid.utils
+package com.mufiid.core.view.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

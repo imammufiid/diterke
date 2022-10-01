@@ -7,8 +7,7 @@ import com.mufiid.core.extensions.attachFragment
 import com.mufiid.core.extensions.toLatLng
 import com.mufiid.diterke.databinding.ActivityMainBinding
 import com.mufiid.locationapi.ui.SearchLocationActivity
-import com.mufiid.utils.BindingActivity
-import com.mufiid.utils.listener.findFragmentListener
+import com.mufiid.core.view.base.BindingActivity
 
 class MainActivity : BindingActivity<ActivityMainBinding>(), MainActivityListener {
     override fun inflateBinding(): ActivityMainBinding {
@@ -25,15 +24,10 @@ class MainActivity : BindingActivity<ActivityMainBinding>(), MainActivityListene
         }
     }
 
-    private fun locationResult(data: Location) {
-        println("DATA-RESULT => $data")
-         Toast.makeText(this, data.toLatLng().toString(), Toast.LENGTH_SHORT).show()
-    }
-
+    /**
+     * get data from fragment to this activity
+     */
     override fun onLocationResult(data: Location) {
-        /**
-         * get data from fragment to it activity
-         */
-        locationResult(data)
+        Toast.makeText(this, data.toLatLng().toString(), Toast.LENGTH_SHORT).show()
     }
 }

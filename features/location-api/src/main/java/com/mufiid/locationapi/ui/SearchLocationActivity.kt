@@ -4,11 +4,10 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.core.view.isVisible
-import com.mufiid.core.state.StateEvent
 import com.mufiid.core.state.StateEventSubscriber
 import com.mufiid.locationapi.databinding.ActivitySearchLocationBinding
 import com.mufiid.locationapi.entity.LocationData
-import com.mufiid.utils.BindingActivity
+import com.mufiid.core.view.base.BindingActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SearchLocationActivity : BindingActivity<ActivitySearchLocationBinding>() {

@@ -51,9 +51,11 @@ fun <T, U> Response<T>.asFlowStateEvent(mapper: (T) -> U): FlowState<U> {
                 StateEvent.Success(data)
             } else {
                 val throwable = StateApiException(message(), code())
+                println(throwable)
                 StateEvent.Failure(throwable)
             }
         } catch (e: Throwable) {
+            println("--------------> ${e.message}")
             StateEvent.Failure(e)
         }
         emit(emitData)

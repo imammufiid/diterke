@@ -11,14 +11,10 @@ class HomeViewModel(
     private val homeRepository: HomeRepository
 ) : ViewModel() {
     private val locationEvent = homeRepository.locationResult
-
-    private val locationScope = locationEvent.createScope(viewModelScope)
-
     fun subscribe(subscriber: StateEventSubscriber<Location>) {
         convertEventToSubscriber(locationEvent, subscriber)
     }
-
-    fun getLocation() = locationScope.launch {
+    fun getLocation() = locationEvent.createScope(viewModelScope).launch {
         homeRepository.getLocation()
     }
 }

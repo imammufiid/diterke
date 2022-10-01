@@ -3,7 +3,6 @@ package com.mufiid.diterke.home
 import android.Manifest
 import android.location.Location
 import android.os.Bundle
-import android.widget.Toast
 import androidx.core.view.isVisible
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -12,7 +11,7 @@ import com.mufiid.core.extensions.toLatLng
 import com.mufiid.core.state.StateEventSubscriber
 import com.mufiid.diterke.R
 import com.mufiid.diterke.databinding.FragmentHomeBinding
-import com.mufiid.utils.BindingFragment
+import com.mufiid.core.view.base.BindingFragment
 import com.mufiid.utils.listener.findActivityListener
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pub.devrel.easypermissions.AfterPermissionGranted
