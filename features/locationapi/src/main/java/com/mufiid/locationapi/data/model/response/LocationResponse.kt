@@ -1,4 +1,4 @@
-package com.mufiid.searchlocation.data.model.response
+package com.mufiid.locationapi.data.model.response
 
 
 import com.google.gson.annotations.SerializedName

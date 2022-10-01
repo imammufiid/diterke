@@ -1,6 +1,6 @@
-package com.mufiid.searchlocation
+package com.mufiid.locationapi.data.source.network
 
-import com.mufiid.searchlocation.data.model.response.LocationResponse
+import com.mufiid.locationapi.data.model.response.LocationResponse
 import com.mufiid.network.RetrofitBuilder
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject

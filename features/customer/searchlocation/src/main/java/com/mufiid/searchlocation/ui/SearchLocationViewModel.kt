@@ -3,13 +3,10 @@ package com.mufiid.searchlocation.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mufiid.core.extensions.convertEventToSubscriber
-import com.mufiid.core.state.StateEvent
 import com.mufiid.core.state.StateEventSubscriber
-import com.mufiid.searchlocation.data.model.entity.LocationData
-import com.mufiid.searchlocation.domain.repository.LocationApiRepository
+import com.mufiid.locationapi.data.model.entity.LocationData
+import com.mufiid.locationapi.domain.repository.LocationApiRepository
 import kotlinx.coroutines.launch
-
-typealias StateLocationList = StateEvent<List<LocationData>>
 
 class SearchLocationViewModel(
     private val locationApiRepository: LocationApiRepository

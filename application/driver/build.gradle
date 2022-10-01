@@ -4,7 +4,6 @@ plugins {
 }
 
 apply from: "$rootDir/gradle/script/main.gradle"
-//apply from: "$rootDir/gradle/script/main.localmodule.gradle"
 apply from: "$rootDir/gradle/script/main.dependencies.gradle"
 
 android {
@@ -28,5 +27,5 @@ dependencies {
     implementation project(":features:auth")
     implementation project(":features:transaction")
     implementation project(':features:customer:searchlocation')
-    implementation project(":features:auth")
+    implementation project(':features:customer:profile')
 }

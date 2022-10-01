@@ -5,7 +5,6 @@ plugins {
 
 apply from: "$rootDir/gradle/script/main.gradle"
 apply from: "$rootDir/gradle/script/main.dependencies.gradle"
-//apply from: "$rootDir/gradle/script/main.localmodule.gradle"
 
 android {
     defaultConfig {
@@ -18,9 +17,15 @@ android {
 }
 
 dependencies {
+    // features module
     implementation project(":features:transaction")
-    implementation project(':features:customer:searchlocation')
     implementation project(":features:auth")
+    implementation project(":features:locationapi")
+    // features customer module
+    implementation project(':features:customer:searchlocation')
+    implementation project(':features:customer:profile')
+
+    // shared module
     implementation project(":shared:network")
     implementation project(":shared:utils")
     implementation project(":shared:core")

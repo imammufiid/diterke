@@ -22,5 +22,4 @@ dependencies {
     implementation project(":shared:utils")
     implementation project(":shared:core")
     implementation project(":shared:navigation")
-    implementation project(":features:locationapi")
 }

@@ -22,9 +22,10 @@ android {
 
 dependencies {
     implementation project(":features:transaction")
+    implementation project(":features:auth")
+    implementation project(":features:auth")
     implementation project(':features:customer:searchlocation')
-    implementation project(":features:auth")
-    implementation project(":features:auth")
+    implementation project(':features:customer:profile')
 
     implementation project(":shared:network")
     implementation project(":shared:utils")

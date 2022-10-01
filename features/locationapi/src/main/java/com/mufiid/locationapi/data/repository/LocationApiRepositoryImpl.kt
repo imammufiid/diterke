@@ -1,13 +1,13 @@
-package com.mufiid.searchlocation.data.repository
+package com.mufiid.locationapi.data.repository
 
 import com.mufiid.core.extensions.asFlowStateEvent
 import com.mufiid.core.state.MutableStateEventManager
 import com.mufiid.core.state.StateEvent
 import com.mufiid.core.state.StateEventManager
-import com.mufiid.searchlocation.LocationService
-import com.mufiid.searchlocation.Mapper
-import com.mufiid.searchlocation.data.model.entity.LocationData
-import com.mufiid.searchlocation.domain.repository.LocationApiRepository
+import com.mufiid.locationapi.data.source.network.LocationService
+import com.mufiid.locationapi.data.model.mapper.Mapper
+import com.mufiid.locationapi.data.model.entity.LocationData
+import com.mufiid.locationapi.domain.repository.LocationApiRepository
 
 class LocationApiRepositoryImpl(
     private val locationService: LocationService

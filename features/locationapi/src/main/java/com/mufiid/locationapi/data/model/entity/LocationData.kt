@@ -1,4 +1,4 @@
-package com.mufiid.searchlocation.data.model.entity
+package com.mufiid.locationapi.data.model.entity
 
 import com.google.android.gms.maps.model.LatLng
 
