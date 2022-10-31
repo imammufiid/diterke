@@ -1,5 +1,6 @@
 package com.mufiid.core.extensions
 
+import android.os.Bundle
 import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -21,17 +22,18 @@ fun <T : Fragment> FragmentManager.attachFragment(
     return tagName
 }
 
-fun <T : Fragment> FragmentManager.replaceFragment(
+fun <T: Fragment>FragmentManager.replaceFragment(
     frameLayout: FrameLayout,
     kClass: KClass<T>,
-    backStackName: String? = null
+    backstackName: String? = null,
+    bundle: Bundle? = null
 ): String {
-    val instance = kClass.java.newInstance()
-    val tagName = kClass.qualifiedName.orEmpty()
-    val newBackStackName = backStackName ?: tagName
+    val tag = kClass.qualifiedName.orEmpty()
+    val newBackstackName = backstackName ?: tag
     this.beginTransaction()
-        .replace(frameLayout.id, instance, tagName)
-        .addToBackStack(newBackStackName)
+        .replace(frameLayout.id, kClass.java, bundle, tag)
+        .addToBackStack(newBackstackName)
         .commit()
-    return tagName
+
+    return tag
 }

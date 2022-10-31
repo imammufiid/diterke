@@ -1,6 +1,7 @@
 package com.mufiid.searchlocation.ui
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.core.view.isVisible
 import com.mufiid.core.extensions.attachFragment
 import com.mufiid.core.extensions.replaceFragment
@@ -20,7 +21,13 @@ class SearchLocationFragment : BindingFragment<FragmentSearchLocationBinding>() 
         return FragmentSearchLocationBinding.inflate(layoutInflater)
     }
 
+    private val formType: Int by lazy {
+        arguments?.getInt("formType", 1) ?: 1
+    }
+
+
     override fun onCreateBinding(savedInstanceState: Bundle?) {
+        Toast.makeText(context, formType.toString(), Toast.LENGTH_SHORT).show()
         binding.btnSearch.setOnClickListener {
             viewModel.searchLocation(binding.etSearch.text.toString())
         }

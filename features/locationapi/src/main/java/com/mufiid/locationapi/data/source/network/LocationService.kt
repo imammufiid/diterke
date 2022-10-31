@@ -1,6 +1,7 @@
 package com.mufiid.locationapi.data.source.network
 
 import com.mufiid.locationapi.data.model.response.LocationResponse
+import com.mufiid.locationapi.data.model.response.ReverseLocationResponse
 import com.mufiid.network.RetrofitBuilder
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
@@ -16,8 +17,14 @@ interface LocationService {
         @Query("coordinate") coordinate: String
     ): Response<LocationResponse>
 
+    @GET(Endpoint.REVERSE)
+    suspend fun reverseLocation(
+        @Query(QueryName.SEARCH_COORDINATE) coordinate: String
+    ): Response<ReverseLocationResponse>
+
     object Endpoint {
         internal const val SEARCH = "/api/location/search"
+        internal const val REVERSE = "/api/location/reverse"
     }
 
     object QueryName {

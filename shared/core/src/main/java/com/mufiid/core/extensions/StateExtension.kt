@@ -61,3 +61,9 @@ fun <T, U> Response<T>.asFlowStateEvent(mapper: (T) -> U): FlowState<U> {
         emit(emitData)
     }
 }
+
+fun <T> StateEvent<T>.onSuccess(action: T.() -> Unit) {
+    if (this is StateEvent.Success) {
+        action.invoke(data)
+    }
+}

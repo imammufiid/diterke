@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 apply from: "$rootDir/gradle/script/main.gradle"
@@ -23,13 +25,17 @@ android {
 dependencies {
     implementation project(":features:transaction")
     implementation project(":features:auth")
-    implementation project(":features:auth")
     implementation project(':features:customer:searchlocation')
     implementation project(':features:customer:profile')
+    implementation project(':features:customer:home')
+    implementation project(':features:locationapi')
 
     implementation project(":shared:network")
     implementation project(":shared:utils")
     implementation project(":shared:core")
     implementation project(":shared:koin")
     implementation project(":shared:navigation")
+
+    implementation platform('com.google.firebase:firebase-bom:31.0.2')
+    implementation 'com.google.firebase:firebase-messaging-ktx'
 }
