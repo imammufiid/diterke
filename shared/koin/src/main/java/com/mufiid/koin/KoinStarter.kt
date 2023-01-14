@@ -2,8 +2,9 @@ package com.mufiid.koin
 
 import android.content.Context
 import com.mufiid.auth.di.FeatureAuthModule
-import com.mufiid.core.SharedCoreModules
+import com.mufiid.core.di.SharedCoreModules
 import com.mufiid.locationapi.di.FeatureLocationApiModule
+import com.mufiid.messaging.MessageModule
 import com.mufiid.network.SharedNetworkModule
 import com.mufiid.profile.FeatureCustomerProfileModule
 import com.mufiid.searchlocation.di.FeatureCustomerSearchLocationModule
@@ -19,7 +20,8 @@ object KoinStarter {
             FeatureLocationApiModule.modules(),
             FeatureAuthModule.modules(),
             FeatureCustomerSearchLocationModule.modules(),
-            FeatureCustomerProfileModule.modules()
+            FeatureCustomerProfileModule.modules(),
+            MessageModule.modules()
         ) + featuresModules
 
         startKoin {

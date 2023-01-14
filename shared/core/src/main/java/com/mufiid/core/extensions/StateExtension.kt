@@ -2,7 +2,7 @@ package com.mufiid.core.extensions
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mufiid.core.state.*
+import com.mufiid.core.stateevent.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
