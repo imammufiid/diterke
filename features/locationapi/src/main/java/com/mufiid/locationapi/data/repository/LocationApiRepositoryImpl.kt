@@ -1,9 +1,9 @@
 package com.mufiid.locationapi.data.repository
 
 import com.mufiid.core.extensions.asFlowStateEvent
-import com.mufiid.core.state.MutableStateEventManager
-import com.mufiid.core.state.StateEvent
-import com.mufiid.core.state.StateEventManager
+import com.mufiid.core.stateevent.MutableStateEventManager
+import com.mufiid.core.stateevent.StateEvent
+import com.mufiid.core.stateevent.StateEventManager
 import com.mufiid.locationapi.data.source.network.LocationService
 import com.mufiid.locationapi.data.model.mapper.Mapper
 import com.mufiid.locationapi.data.model.entity.LocationData

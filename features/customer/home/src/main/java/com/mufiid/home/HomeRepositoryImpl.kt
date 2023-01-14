@@ -1,14 +1,13 @@
 package com.mufiid.home
 
 import android.location.Location
-import com.google.android.gms.location.LocationServices
-import com.mufiid.core.state.MutableStateEventManager
-import com.mufiid.core.state.StateEventManager
+import com.mufiid.core.stateevent.MutableStateEventManager
+import com.mufiid.core.stateevent.StateEventManager
 import com.mufiid.core.LocationManager
 import com.mufiid.core.extensions.asFlowStateEvent
 import com.mufiid.core.extensions.mapStateEvent
-import com.mufiid.core.state.FlowState
-import com.mufiid.core.state.StateEvent
+import com.mufiid.core.stateevent.FlowState
+import com.mufiid.core.stateevent.StateEvent
 import com.mufiid.locationapi.data.model.entity.LocationData
 import com.mufiid.locationapi.data.model.mapper.Mapper
 import com.mufiid.locationapi.data.source.network.LocationService

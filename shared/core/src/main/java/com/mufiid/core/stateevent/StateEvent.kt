@@ -1,4 +1,4 @@
-package com.mufiid.core.state
+package com.mufiid.core.stateevent
 
 sealed class StateEvent<T> {
     class Idle<T> : StateEvent<T>()

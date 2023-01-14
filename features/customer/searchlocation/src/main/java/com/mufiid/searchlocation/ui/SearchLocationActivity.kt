@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.core.view.isVisible
-import com.mufiid.core.state.StateEventSubscriber
+import com.mufiid.core.stateevent.StateEventSubscriber
 import com.mufiid.core.view.base.BindingActivity
 import com.mufiid.locationapi.data.model.entity.LocationData
 import com.mufiid.searchlocation.databinding.ActivitySearchLocationBinding

@@ -1,4 +1,4 @@
-package com.mufiid.core.state
+package com.mufiid.core.stateevent
 
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.FlowCollector

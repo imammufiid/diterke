@@ -3,15 +3,12 @@ package com.mufiid.searchlocation.ui
 import android.os.Bundle
 import android.widget.Toast
 import androidx.core.view.isVisible
-import com.mufiid.core.extensions.attachFragment
 import com.mufiid.core.extensions.replaceFragment
-import com.mufiid.core.state.StateEventSubscriber
+import com.mufiid.core.stateevent.StateEventSubscriber
 import com.mufiid.core.view.base.BindingFragment
 import com.mufiid.locationapi.data.model.entity.LocationData
 import com.mufiid.navigation.FragmentConnector
-import com.mufiid.navigation.ProfileFragmentConnector
 import com.mufiid.searchlocation.databinding.FragmentSearchLocationBinding
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SearchLocationFragment : BindingFragment<FragmentSearchLocationBinding>() {

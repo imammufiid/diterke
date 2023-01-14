@@ -10,7 +10,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.mufiid.core.extensions.onSuccess
 import com.mufiid.core.extensions.toLatLng
 import com.mufiid.core.extensions.toLocation
-import com.mufiid.core.state.StateEventSubscriber
+import com.mufiid.core.stateevent.StateEventSubscriber
 import com.mufiid.core.view.base.BindingFragment
 import com.mufiid.core.view.component.WidgetInputLocationView
 import com.mufiid.home.databinding.FragmentHomeBinding

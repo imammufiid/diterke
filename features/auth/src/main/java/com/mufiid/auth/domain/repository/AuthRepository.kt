@@ -3,7 +3,7 @@ package com.mufiid.auth.domain.repository
 import com.mufiid.auth.data.model.request.CustomerRegisterRequest
 import com.mufiid.auth.data.model.request.DriverRegisterRequest
 import com.mufiid.auth.data.model.request.LoginRequest
-import com.mufiid.core.state.StateEventManager
+import com.mufiid.core.stateevent.StateEventManager
 
 interface AuthRepository {
     val registerCustomerState: StateEventManager<Boolean>

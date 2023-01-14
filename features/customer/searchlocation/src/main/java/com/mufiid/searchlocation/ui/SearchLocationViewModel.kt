@@ -3,7 +3,7 @@ package com.mufiid.searchlocation.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mufiid.core.extensions.convertEventToSubscriber
-import com.mufiid.core.state.StateEventSubscriber
+import com.mufiid.core.stateevent.StateEventSubscriber
 import com.mufiid.locationapi.data.model.entity.LocationData
 import com.mufiid.locationapi.domain.repository.LocationApiRepository
 import kotlinx.coroutines.launch

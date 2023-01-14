@@ -7,7 +7,7 @@ import com.mufiid.auth.databinding.ActivityAuthBinding
 import com.mufiid.auth.data.model.request.CustomerRegisterRequest
 import com.mufiid.auth.data.model.request.DriverRegisterRequest
 import com.mufiid.auth.data.model.request.LoginRequest
-import com.mufiid.core.state.StateEventSubscriber
+import com.mufiid.core.stateevent.StateEventSubscriber
 import com.mufiid.core.view.base.BindingActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

@@ -6,8 +6,8 @@ import com.mufiid.auth.data.model.request.DriverRegisterRequest
 import com.mufiid.auth.data.model.request.LoginRequest
 import com.mufiid.auth.domain.repository.AuthRepository
 import com.mufiid.core.extensions.asFlowStateEvent
-import com.mufiid.core.state.MutableStateEventManager
-import com.mufiid.core.state.StateEventManager
+import com.mufiid.core.stateevent.MutableStateEventManager
+import com.mufiid.core.stateevent.StateEventManager
 
 class AuthRepositoryImpl(
     private val authService: AuthService

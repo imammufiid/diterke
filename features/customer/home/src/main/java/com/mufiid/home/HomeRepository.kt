@@ -1,8 +1,8 @@
 package com.mufiid.home
 
 import android.location.Location
-import com.mufiid.core.state.FlowState
-import com.mufiid.core.state.StateEventManager
+import com.mufiid.core.stateevent.FlowState
+import com.mufiid.core.stateevent.StateEventManager
 import com.mufiid.locationapi.data.model.entity.LocationData
 
 interface HomeRepository {
