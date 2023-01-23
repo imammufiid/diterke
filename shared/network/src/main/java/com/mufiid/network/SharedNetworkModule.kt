@@ -4,6 +4,7 @@ import org.koin.dsl.module
 
 object SharedNetworkModule {
     fun modules() = module {
-        factory { RetrofitBuilder() }
+        factory { Tokenizer() }
+        factory { RetrofitBuilder(get()) }
     }
 }

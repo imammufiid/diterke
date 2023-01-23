@@ -15,7 +15,8 @@ class MainCustomer : Application() {
         super.onCreate()
         KoinStarter.onCreate(
             this, listOf(
-                HomeModule.modules()
+                HomeModule.modules(),
+                MainCustomerModule.modules()
             )
         )
 

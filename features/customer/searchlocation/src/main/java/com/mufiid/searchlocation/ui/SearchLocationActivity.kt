@@ -30,7 +30,7 @@ class SearchLocationActivity : BindingActivity<ActivitySearchLocationBinding>() 
             viewModel.searchLocation(binding.etSearch.text.toString())
         }
 
-        viewModel.subscribe(object : StateEventSubscriber<List<LocationData>> {
+        viewModel.subscribeSearchLocation(object : StateEventSubscriber<List<LocationData>> {
             override fun onIdle() {
                 binding.progressBar.isVisible = false
             }

@@ -2,8 +2,11 @@ package com.mufiid.home
 
 import android.Manifest
 import android.location.Location
+import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
@@ -15,6 +18,7 @@ import com.mufiid.core.view.base.BindingFragment
 import com.mufiid.core.view.component.WidgetInputLocationView
 import com.mufiid.home.databinding.FragmentHomeBinding
 import com.mufiid.locationapi.data.model.entity.LocationData
+import com.mufiid.utils.isGrantedLocation
 import com.mufiid.utils.listener.findActivityListener
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pub.devrel.easypermissions.AfterPermissionGranted
@@ -36,7 +40,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(), HomeFragmentListene
 
     override fun onStart() {
         super.onStart()
-        viewModel.subscribeLocation(locationSubscriber())
+        viewModel.subscribeLocation(subscriberLocation)
     }
 
     private fun getActivityListener(): MainActivityListener? {
@@ -64,49 +68,28 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(), HomeFragmentListene
         }
     }
 
-    private val subscriberLocation = object : StateEventSubscriber<Location> {
-        override fun onIdle() {
-            println("--- EVENT-LOCATION => OnIdle")
+    private val subscriberLocation
+        get() = object : StateEventSubscriber<Location> {
+            override fun onIdle() {
+                println("--- EVENT-LOCATION => OnIdle")
+            }
+
+            override fun onLoading() {
+                println("--- EVENT-LOCATION => OnLoading")
+            }
+
+            override fun onFailure(throwable: Throwable) {
+                println("--- EVENT-LOCATION => OnFailure: ${throwable.message}")
+            }
+
+            override fun onSuccess(data: Location) {
+                println("--- EVENT-LOCATION => onSuccess: $data")
+                val cameraUpdate = CameraUpdateFactory.newLatLngZoom(data.toLatLng(), 14f)
+                map.animateCamera(cameraUpdate)
+                getActivityListener()?.onLocationResult(data)
+            }
+
         }
-
-        override fun onLoading() {
-            println("--- EVENT-LOCATION => OnLoading")
-        }
-
-        override fun onFailure(throwable: Throwable) {
-            println("--- EVENT-LOCATION => OnFailure: ${throwable.message}")
-        }
-
-        override fun onSuccess(data: Location) {
-            println("--- EVENT-LOCATION => onSuccess: $data")
-            val cameraUpdate = CameraUpdateFactory.newLatLngZoom(data.toLatLng(), 14f)
-            map.animateCamera(cameraUpdate)
-        }
-
-    }
-
-    private fun locationSubscriber() = object : StateEventSubscriber<Location> {
-        override fun onIdle() {
-            println("----- location idle")
-        }
-
-        override fun onLoading() {
-            println("----- location loading")
-        }
-
-        override fun onFailure(throwable: Throwable) {
-            println("----- location failure -> ${throwable.message}")
-        }
-
-        override fun onSuccess(data: Location) {
-            println("----- location success -> $data")
-
-            val cameraUpdate = CameraUpdateFactory.newLatLngZoom(data.toLatLng(), 14f)
-            map.animateCamera(cameraUpdate)
-
-            getActivityListener()?.onLocationResult(data)
-        }
-    }
 
     private fun subscribeLocationFrom() {
         viewModel.locationFrom.observe(this) {
@@ -156,19 +139,35 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(), HomeFragmentListene
 
     @AfterPermissionGranted(value = RC_LOCATION)
     private fun getLocationWithPermission() {
-        val fineLocation = Manifest.permission.ACCESS_FINE_LOCATION
-        val coarseLocation = Manifest.permission.ACCESS_COARSE_LOCATION
-        context?.let {
-            if (EasyPermissions.hasPermissions(it, fineLocation, coarseLocation)) {
-                // get location
+        if (context?.isGrantedLocation() == false) {
+            requestPermission()
+        } else {
+            viewModel.getLocation()
+        }
+    }
+
+    private fun requestPermission() {
+        locationPermissionRequest.launch(
+            arrayOf(
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            )
+        )
+    }
+
+    @RequiresApi(Build.VERSION_CODES.N)
+    private val locationPermissionRequest = registerForActivityResult(
+        ActivityResultContracts.RequestMultiplePermissions()
+    ) { permissions ->
+        when {
+            permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) -> {
                 viewModel.getLocation()
-            } else {
-                EasyPermissions.requestPermissions(
-                    this,
-                    "Granted for location",
-                    RC_LOCATION,
-                    fineLocation, coarseLocation
-                )
+            }
+            permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
+                requestPermission()
+            }
+            else -> {
+                requestPermission()
             }
         }
     }

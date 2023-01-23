@@ -72,60 +72,63 @@ class AuthActivity : BindingActivity<ActivityAuthBinding>() {
         viewModel.subscribeCustomerRegisterEvent(subscriberCustomerRegister)
     }
 
-    private val subscriberLogin = object : StateEventSubscriber<String> {
-        override fun onIdle() {
-            println("EVENT_LOGIN => OnIdle")
+    private val subscriberLogin
+        get() = object : StateEventSubscriber<String> {
+            override fun onIdle() {
+                println("EVENT_LOGIN => OnIdle")
+            }
+
+            override fun onLoading() {
+                println("EVENT_LOGIN => onLoading")
+            }
+
+            override fun onFailure(throwable: Throwable) {
+                println("EVENT_LOGIN => onFailure ${throwable.message}")
+            }
+
+            override fun onSuccess(data: String) {
+                println("EVENT_LOGIN => onSuccess $data")
+            }
         }
 
-        override fun onLoading() {
-            println("EVENT_LOGIN => onLoading")
+    private val subscriberDriverRegister
+        get() = object : StateEventSubscriber<Boolean> {
+            override fun onIdle() {
+                println("EVENT_REGISTER_DRIVER => OnIdle")
+            }
+
+            override fun onLoading() {
+                println("EVENT_REGISTER_DRIVER => onLoading")
+            }
+
+            override fun onFailure(throwable: Throwable) {
+                println("EVENT_REGISTER_DRIVER => onFailure ${throwable.message}")
+            }
+
+            override fun onSuccess(data: Boolean) {
+                println("EVENT_REGISTER_DRIVER => onSuccess $data")
+            }
+
         }
 
-        override fun onFailure(throwable: Throwable) {
-            println("EVENT_LOGIN => onFailure ${throwable.message}")
+    private val subscriberCustomerRegister
+        get() = object : StateEventSubscriber<Boolean> {
+            override fun onIdle() {
+                println("EVENT_REGISTER_CUSTOMER => OnIdle")
+            }
+
+            override fun onLoading() {
+                println("EVENT_REGISTER_CUSTOMER => onLoading")
+            }
+
+            override fun onFailure(throwable: Throwable) {
+                println("EVENT_REGISTER_CUSTOMER => onFailure ${throwable.message}")
+            }
+
+            override fun onSuccess(data: Boolean) {
+                println("EVENT_REGISTER_CUSTOMER => onSuccess $data")
+            }
+
         }
-
-        override fun onSuccess(data: String) {
-            println("EVENT_LOGIN => onSuccess $data")
-        }
-    }
-
-    private val subscriberDriverRegister = object : StateEventSubscriber<Boolean> {
-        override fun onIdle() {
-            println("EVENT_REGISTER_DRIVER => OnIdle")
-        }
-
-        override fun onLoading() {
-            println("EVENT_REGISTER_DRIVER => onLoading")
-        }
-
-        override fun onFailure(throwable: Throwable) {
-            println("EVENT_REGISTER_DRIVER => onFailure ${throwable.message}")
-        }
-
-        override fun onSuccess(data: Boolean) {
-            println("EVENT_REGISTER_DRIVER => onSuccess $data")
-        }
-
-    }
-
-    private val subscriberCustomerRegister = object : StateEventSubscriber<Boolean> {
-        override fun onIdle() {
-            println("EVENT_REGISTER_CUSTOMER => OnIdle")
-        }
-
-        override fun onLoading() {
-            println("EVENT_REGISTER_CUSTOMER => onLoading")
-        }
-
-        override fun onFailure(throwable: Throwable) {
-            println("EVENT_REGISTER_CUSTOMER => onFailure ${throwable.message}")
-        }
-
-        override fun onSuccess(data: Boolean) {
-            println("EVENT_REGISTER_CUSTOMER => onSuccess $data")
-        }
-
-    }
 
 }

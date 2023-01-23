@@ -1,11 +1,13 @@
 package com.mufiid.core
 
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.get
 
+@DelicateCoroutinesApi
 class DiterkeBus {
     private val dataFlow: MutableStateFlow<DataBus<*>?> = MutableStateFlow(null)
 

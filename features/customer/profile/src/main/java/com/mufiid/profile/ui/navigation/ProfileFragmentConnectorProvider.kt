@@ -1,7 +1,8 @@
-package com.mufiid.profile
+package com.mufiid.profile.ui.navigation
 
 import androidx.fragment.app.Fragment
 import com.mufiid.navigation.ProfileFragmentConnector
+import com.mufiid.profile.ui.ProfileFragment
 import kotlin.reflect.KClass
 
 @Suppress("UNCHECKED_CAST")

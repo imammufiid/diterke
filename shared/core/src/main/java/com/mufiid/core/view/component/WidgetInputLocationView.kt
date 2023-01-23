@@ -3,16 +3,16 @@ package com.mufiid.core.view.component
 import android.content.Context
 import android.location.Location
 import android.util.AttributeSet
+import android.widget.EditText
 import android.widget.FrameLayout
-import android.widget.TextView
 import com.mufiid.core.R
 import com.mufiid.core.extensions.findIdByLazy
 
 class WidgetInputLocationView(context: Context, attributeSet: AttributeSet) :
     FrameLayout(context, attributeSet) {
 
-    private val textViewFrom: TextView by findIdByLazy(R.id.tv_from)
-    private val textViewDest: TextView by findIdByLazy(R.id.tv_destination)
+    private val editTextFrom: EditText by findIdByLazy(R.id.et_from)
+    private val editTextDest: EditText by findIdByLazy(R.id.et_destination)
 
     data class InputLocationData(
         val location: Location = Location(""),
@@ -26,7 +26,7 @@ class WidgetInputLocationView(context: Context, attributeSet: AttributeSet) :
     var inputLocationFromData: InputLocationData
         get() = _inputLocationFromData
         set(value) {
-            textViewFrom.text = value.name
+            editTextFrom.setText(value.name)
             _inputLocationFromData = value
         }
 
@@ -34,15 +34,15 @@ class WidgetInputLocationView(context: Context, attributeSet: AttributeSet) :
     var inputLocationDestData: InputLocationData
         get() = _inputLocationDestData
         set(value) {
-            textViewDest.text = value.name
+            editTextDest.setText(value.name)
             _inputLocationDestData = value
         }
 
     init {
         inflate(context, R.layout.component_widget_input_location_view, this)
 
-        textViewFrom.text = _inputLocationFromData.name
-        textViewDest.text = _inputLocationDestData.name
+        editTextFrom.hint = _inputLocationFromData.name
+        editTextDest.hint = _inputLocationDestData.name
     }
 
     companion object {
@@ -52,14 +52,39 @@ class WidgetInputLocationView(context: Context, attributeSet: AttributeSet) :
     }
 
     fun onFromClick(action: () -> Unit) {
-        textViewFrom.setOnClickListener {
+        editTextFrom.apply {
+            setText(_inputLocationFromData.name)
+            isFocusable = false
+            isClickable = true
+        }
+        editTextFrom.setOnClickListener {
             action.invoke()
         }
     }
 
     fun onDestClick(action: () -> Unit) {
-        textViewDest.setOnClickListener {
+        editTextDest.apply {
+            setText(_inputLocationFromData.name)
+            isFocusable = false
+            isClickable = true
+        }
+        editTextDest.setOnClickListener {
             action.invoke()
+        }
+    }
+
+    fun setFocus(form: Int) {
+        when (form) {
+            1 -> {
+                editTextFrom.isFocusable = true
+                editTextFrom.isClickable = false
+                editTextFrom.requestFocus()
+            }
+            2 -> {
+                editTextDest.isFocusable = true
+                editTextDest.isClickable = false
+                editTextDest.requestFocus()
+            }
         }
     }
 }

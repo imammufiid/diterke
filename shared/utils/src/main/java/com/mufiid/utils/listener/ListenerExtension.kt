@@ -1,14 +1,14 @@
 package com.mufiid.utils.listener
 
-import android.app.Activity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import kotlin.reflect.KClass
 
+@Suppress("UNCHECKED_CAST")
 fun <T: ActivityListener>Fragment.findActivityListener(): T? {
     return activity as? T
 }
 
+@Suppress("UNCHECKED_CAST")
 fun <T: FragmentListener>FragmentActivity.findFragmentListener(tag: String): T? {
     return supportFragmentManager.findFragmentByTag(tag) as? T
 }

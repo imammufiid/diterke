@@ -1,7 +1,7 @@
 package com.mufiid.locationapi.data.model.mapper
 
 import com.google.android.gms.maps.model.LatLng
-import com.mufiid.core.extensions.orNol
+import com.mufiid.utils.orNol
 import com.mufiid.locationapi.data.model.entity.LocationData
 import com.mufiid.locationapi.data.model.response.LocationResponse
 import com.mufiid.locationapi.data.model.response.ReverseLocationResponse

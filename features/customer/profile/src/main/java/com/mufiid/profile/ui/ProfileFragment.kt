@@ -1,4 +1,4 @@
-package com.mufiid.profile
+package com.mufiid.profile.ui
 
 import android.os.Bundle
 import com.mufiid.core.view.base.BindingFragment

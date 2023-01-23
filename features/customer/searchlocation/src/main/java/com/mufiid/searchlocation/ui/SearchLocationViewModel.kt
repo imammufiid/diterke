@@ -13,9 +13,12 @@ class SearchLocationViewModel(
 ) : ViewModel() {
 
     private val locationEvent = locationApiRepository.searchLocationResult
-    fun subscribe(subscriber: StateEventSubscriber<List<LocationData>>) {
+    fun subscribeSearchLocation(subscriber: StateEventSubscriber<List<LocationData>>) {
         convertEventToSubscriber(locationEvent, subscriber)
     }
+
+    var fromLocation: LocationData = LocationData()
+    var destLocation: LocationData = LocationData()
 
     fun searchLocation(q: String) = locationEvent.createScope(viewModelScope).launch {
         val coordinate = "-6.8836002,107.5500096"
